@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="http://chessboardjs.com/js/chessboard.js"></script>
+    <script src="https://cdn.rawgit.com/lhartikk/simple-chess-ai/master/lib/js/chess.js"></script>
+    <script src="chess.js"></script>
+    <title>Chess</title>
+  </head>
+  <body>
+    <base href="http://chessboardjs.com/" />
+    <!-- Used to get images -->
+    <h3 class="board">
+      Improved evaluation
+    </h3>
+    <div id="board" class="board"></div>
+    <br />
+    <div class="info">
+      <label for="white-search-depth">White Depth</label>
+      <select id="white-search-depth" name="white-search-depth>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3" selected>3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      <label for="black-search-depth">Black Depth</label>
+      <select id="black-search-depth" name="black-search-depth">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3" selected>3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+
+      <br />
+      <span>Positions evaluated: <span id="position-count"></span></span>
+      <br />
+      <span>Time: <span id="time"></span></span>
+      <br />
+      <span>Positions/s: <span id="positions-per-s"></span> </span>
+      <br />
+      <br />
+      <div id="move-history" class="move-history"></div>
+      <br />
+      <button id="robot-game">robot Board</button>
+      <button id="reset-game">Reset Board</button>
+  </body>
+  <base href="http://chessboardjs.com/" />
+</html>
