@@ -330,6 +330,14 @@ document.addEventListener(
         setTimeout(function() {
           handle_robot_game();
         }, 1000);
+      } else {
+        setTimeout(function() {
+          white_player = true;
+          in_robot_game = true;
+          game.reset();
+          board.start();
+          handle_robot_game();
+        }, 1000);
       }
     }
 
