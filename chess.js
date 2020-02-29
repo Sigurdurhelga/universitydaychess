@@ -13,7 +13,11 @@ document.addEventListener(
 
     var minimaxRoot = function(depth, game, isMaximisingPlayer) {
       var newGameMoves = game.ugly_moves();
-      var bestMove = -9999;
+      if (isMaximisingPlayer) {
+        var bestMove = -9999;
+      } else {
+        var bestMove = 9999;
+      }
       var bestMoveFound;
 
       for (var i = 0; i < newGameMoves.length; i++) {
@@ -27,9 +31,17 @@ document.addEventListener(
           !isMaximisingPlayer
         );
         game.undo();
-        if (value >= bestMove) {
-          bestMove = value;
-          bestMoveFound = newGameMove;
+
+        if (isMaximisingPlayer) {
+          if (value >= bestMove) {
+            bestMove = value;
+            bestMoveFound = newGameMove;
+          }
+        } else {
+          if (value <= bestMove) {
+            bestMove = value;
+            bestMoveFound = newGameMove;
+          }
         }
       }
       return bestMoveFound;
@@ -223,7 +235,7 @@ document.addEventListener(
       }
 
       var d = new Date().getTime();
-      var bestMove = minimaxRoot(depth, game, white_player);
+      var bestMove = minimaxRoot(depth, game, !white_player);
       var d2 = new Date().getTime();
       var moveTime = d2 - d;
       var positionsPerS = (positionCount * 1000) / moveTime;
